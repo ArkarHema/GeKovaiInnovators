@@ -140,6 +140,12 @@ class _otpState extends State<otp> {
                                 print('OTP is valid');
                               } else {
                                 // Invalid OTP
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (content) => Register(),
+                                  ),
+                                );
                                 print('Invalid OTP');
                               }
                             },

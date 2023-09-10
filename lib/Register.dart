@@ -80,197 +80,203 @@ class _RegisterState extends State<Register> {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          TextField(
-                            controller: nameController,
-                            style: const TextStyle(
-                              color: Colors.black, // Text color set to black
-                            ),
-                            decoration: const InputDecoration(
-                              labelText: 'Name',
+                      child: Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            TextField(
+                              controller: nameController,
+                              style: const TextStyle(
+                                color: Colors.black, // Text color set to black
+                              ),
+                              decoration: const InputDecoration(
+                                labelText: 'Name',
 
-                              prefixIcon: Icon(Icons.person),
-                              border: OutlineInputBorder(), // Rounded border
+                                prefixIcon: Icon(Icons.person),
+                                border: OutlineInputBorder(), // Rounded border
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 30),
-                          const Text(
-                            'Preferred time to eat',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors
-                                  .orangeAccent, // Text color set to black
+                            const SizedBox(height: 30),
+                            const Text(
+                              'Preferred time to eat',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors
+                                    .orangeAccent, // Text color set to black
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 20),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                children: [
-                                  const Text(
-                                    'Breakfast',
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .orangeAccent, // Text color set to black
+                            const SizedBox(height: 20),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    const SizedBox(width: 20),
+                                    const Text(
+                                      'Breakfast',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors
+                                            .orangeAccent, // Text color set to black
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 16),
-                                  DropdownButton<String>(
-                                    value: selectedTiming1,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        selectedTiming1 = newValue!;
-                                      });
-                                    },
-                                    items: timingOptionsMrng
-                                        .map<DropdownMenuItem<String>>(
-                                            (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(
-                                          value,
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.black,
+                                    const SizedBox(width: 16),
+                                    DropdownButton<String>(
+                                      value: selectedTiming1,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          selectedTiming1 = newValue!;
+                                        });
+                                      },
+                                      items: timingOptionsMrng
+                                          .map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(
+                                            value,
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    }).toList(),
-                                    style: const TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                    icon: const Icon(
-                                      Icons.arrow_drop_down,
-                                      color: Colors.green,
-                                      size: 32,
+                                        );
+                                      }).toList(),
+                                      style: const TextStyle(
+                                          color: Colors.black, fontSize: 16),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.green,
+                                        size: 32,
+                                      ),
+                                      elevation: 4,
+                                      underline: Container(
+                                        height: 2,
+                                        color: Colors.orange,
+                                      ),
                                     ),
-                                    elevation: 4,
-                                    underline: Container(
-                                      height: 2,
-                                      color: Colors.orange,
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const SizedBox(width: 20),
+                                    const Text(
+                                      'Lunch',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors
+                                            .orangeAccent, // Text color set to black
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    'Lunch',
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .orangeAccent, // Text color set to black
-                                    ),
-                                  ),
-                                  const SizedBox(width: 46),
-                                  DropdownButton<String>(
-                                    value: selectedTiming2,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        selectedTiming2 = newValue!;
-                                      });
-                                    },
-                                    items: timingOptionsAfter
-                                        .map<DropdownMenuItem<String>>(
-                                            (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(
-                                          value,
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.black,
+                                    const SizedBox(width: 46),
+                                    DropdownButton<String>(
+                                      value: selectedTiming2,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          selectedTiming2 = newValue!;
+                                        });
+                                      },
+                                      items: timingOptionsAfter
+                                          .map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(
+                                            value,
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    }).toList(),
-                                    style: const TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                    icon: const Icon(
-                                      Icons.arrow_drop_down,
-                                      color: Colors.green,
-                                      size: 32,
+                                        );
+                                      }).toList(),
+                                      style: const TextStyle(
+                                          color: Colors.black, fontSize: 16),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.green,
+                                        size: 32,
+                                      ),
+                                      elevation: 4,
+                                      underline: Container(
+                                        height: 2,
+                                        color: Colors.orange,
+                                      ),
                                     ),
-                                    elevation: 4,
-                                    underline: Container(
-                                      height: 2,
-                                      color: Colors.orange,
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    const SizedBox(width: 20),
+                                    const Text(
+                                      'Dinner',
+                                      style: TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors
+                                            .orangeAccent, // Text color set to black
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    'Dinner',
-                                    style: TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors
-                                          .orangeAccent, // Text color set to black
-                                    ),
-                                  ),
-                                  const SizedBox(width: 41),
-                                  DropdownButton<String>(
-                                    value: selectedTiming3,
-                                    onChanged: (newValue) {
-                                      setState(() {
-                                        selectedTiming3 = newValue!;
-                                      });
-                                    },
-                                    items: timingOptionsNight
-                                        .map<DropdownMenuItem<String>>(
-                                            (String value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(
-                                          value,
-                                          style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.black,
+                                    const SizedBox(width: 41),
+                                    DropdownButton<String>(
+                                      value: selectedTiming3,
+                                      onChanged: (newValue) {
+                                        setState(() {
+                                          selectedTiming3 = newValue!;
+                                        });
+                                      },
+                                      items: timingOptionsNight
+                                          .map<DropdownMenuItem<String>>(
+                                              (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(
+                                            value,
+                                            style: const TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.black,
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    }).toList(),
-                                    style: const TextStyle(
-                                        color: Colors.black, fontSize: 16),
-                                    icon: const Icon(
-                                      Icons.arrow_drop_down,
-                                      color: Colors.green,
-                                      size: 32,
+                                        );
+                                      }).toList(),
+                                      style: const TextStyle(
+                                          color: Colors.black, fontSize: 16),
+                                      icon: const Icon(
+                                        Icons.arrow_drop_down,
+                                        color: Colors.green,
+                                        size: 32,
+                                      ),
+                                      elevation: 4,
+                                      underline: Container(
+                                        height: 2,
+                                        color: Colors.orange,
+                                      ),
                                     ),
-                                    elevation: 4,
-                                    underline: Container(
-                                      height: 2,
-                                      color: Colors.orange,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 20),
-                              ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (content) =>
-                                          const splashScreen(),
-                                    ),
-                                  );
-                                },
-                                child: const Text('Submit'),
-                              ),
-                            ],
-                          ),
-                        ],
+                                  ],
+                                ),
+                                const SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (content) =>
+                                            const splashScreen(),
+                                      ),
+                                    );
+                                  },
+                                  child: const Text('Submit'),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -1,5 +1,7 @@
+//import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gehealth_care/otp.dart';
+//import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,6 +17,27 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _mobilenumbercon = TextEditingController();
   String _name = '', _phone = '';
   bool _isLoading = false;
+  // void registerUser() async {
+  //   var register = {
+  //     "name": _namecon.text,
+  //     "phone_number": _mobilenumbercon.text
+  //   };
+  //   var response = await http.post(Uri(), // file name in js=>where it is posted
+  //       headers: {"Content-Type": "application/json"}, //application/json
+  //       body: jsonEncode(register));
+  //   var jsonResponse = jsonDecode(response.body);
+  //   if (jsonResponse['status']) {
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //           builder: (content) => otp(
+  //                 name: _name,
+  //                 mobileNumber: _phone,
+  //               )),
+  //     );
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         if (_formKey.currentState!.validate()) {
                                           _name = _namecon.text;
                                           _phone = _mobilenumbercon.text;
+                                          //registerUser();
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
