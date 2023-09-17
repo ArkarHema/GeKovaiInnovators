@@ -78,12 +78,12 @@ class _otpState extends State<otp> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.orange, Colors.yellow],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
+                // gradient: LinearGradient(
+                //   colors: [Colors.orange, Colors.yellow],
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
+                ),
           ),
           Center(
             child: Column(

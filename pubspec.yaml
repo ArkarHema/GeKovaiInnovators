@@ -33,6 +33,9 @@ dependencies:
   flutter_sms: ^2.0.0
   cool_dropdown: ^2.1.0
   http:
+  youtube_player_flutter: ^8.1.2
+  animated_bottom_navigation_bar: ^1.2.0
+  percent_indicator: ^4.0.1
 #  random: ^2.3.3
 
 

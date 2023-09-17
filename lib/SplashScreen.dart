@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gehealth_care/HomeScreen.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class splashScreen extends StatefulWidget {
   const splashScreen({Key? key}) : super(key: key);
@@ -9,6 +10,20 @@ class splashScreen extends StatefulWidget {
 }
 
 class _splashScreenState extends State<splashScreen> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: '-GXfLY4-d8w',
+      flags: const YoutubePlayerFlags(
+        autoPlay: false,
+        mute: false,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -16,7 +31,7 @@ class _splashScreenState extends State<splashScreen> {
         Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.orange, Colors.yellow],
+              colors: [Colors.white, Colors.white],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -53,22 +68,23 @@ class _splashScreenState extends State<splashScreen> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Row(
+                    child: Column(
                       children: [
+                        YoutubePlayer(
+                          controller: _controller,
+                          showVideoProgressIndicator: true,
+                        ),
+                        const SizedBox(
+                          height: 30.0,
+                        ),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (content) => const homeScreen(),
+                                builder: (content) => homeScreen(),
                               ),
                             );
-                          },
-                          child: const Text('Skip'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            //next video
                           },
                           child: const Text('Next'),
                         ),
@@ -82,5 +98,11 @@ class _splashScreenState extends State<splashScreen> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
   }
 }

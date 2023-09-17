@@ -1,8 +1,9 @@
 //import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gehealth_care/otp.dart';
-//import 'package:http/http.dart' as http;
 
+//import 'package:http/http.dart' as http;
+//import 'package:gehealth_care/config.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -46,12 +47,12 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.orange, Colors.yellow],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
+                // gradient: LinearGradient(
+                //   colors: [Colors.orange, Colors.yellow],
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                // ),
+                ),
           ),
           Center(
             child: Column(
@@ -110,6 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             const SizedBox(height: 16.0),
                             TextFormField(
                               controller: _mobilenumbercon,
+                              keyboardType: TextInputType.number,
                               validator: (value) => value!.isEmpty
                                   ? 'Please enter phone number'
                                   : null,
